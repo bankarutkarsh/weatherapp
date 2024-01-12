@@ -1,8 +1,13 @@
+const dotenv = require('dotenv')
+
+dotenv.config();
+
+
 let weather = {
-    // api_key : "d56859a347cba7b832066c0ae0fc6ce6",
+    
     fetchWeather :(city) =>{
         fetch(
-            "https:api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + "d56859a347cba7b832066c0ae0fc6ce6" + "&units=metric"
+            "https:api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + `${process.env.API_KEY}` + "&units=metric"
         ).then(res => {
             if(!res.ok){
                 alert("No weather data found")
@@ -33,6 +38,7 @@ let weather = {
     }
 
 }
+
 
 let cities = ["Ayodhya","Hong Kong","Bangkok","London","Macau","Singapore","Paris","Dubai","New York City","Kuala Lumpur","Istanbul","Delhi","Antalya","Shenzhen","Mumbai","Phuket","Rome","Tokyo","Pattaya","Taipei","Mecca","Guangzhou",'Prague',"Medina","Seoul","Amsterdam","Agra","Miami","Osaka","Las Vegas","Shanghai","Ho Chi Minh City","Denpasar","Barcelona","Los Angeles","Milan","Chennai","Vienna","Johor Bahru","Jaipur","Cancún","Berlin","Cairo","Orlando","Moscow","Venice","Madrid","Ha Long","Riyadh","Dublin","Florence","Jerusalem","Hanoi","Toronto","Johannesburg","Sydney","Munich","Jakarta","Beijing","Saint Petersburg","Brussels","Budapest","Athens","Lisbon","Dammam","Penang Island","Heraklion","Kyoto","Zhuhai","Vancouver","Chiang Mai","Copenhagen","San Francisco","Melbourne","Warsaw","Marrakesh","Kolkata","Cebu City","Auckland","Tel Aviv","Guilin","Honolulu","Hurghada","Kraków","Muğla","Buenos Aires","Chiba","Frankfurt am Main","Stockholm","Lima","Da Nang","Batam","Nice","Fukuoka","Abu Dhabi","Jeju","Porto","Rhodes","Rio de Janeiro","Krabi","Bangalore","Mexico City","Punta Cana","São Paulo","Zürich","Montreal","Washington D.C.","Chicago","Düsseldorf","Boston","Chengdu","Edinburgh","San Jose","Philadelphia","Houston","Hamburg","Cape Town","Manila","Bogota","Xi'an","Beirut","Geneva","Colombo","Xiamen","Bucharest","Casablanca","Atlanta","Sofia","Dalian","Montevideo","Amman","Hangzhou","Pune","Durban","Dallas","Accra","Quito","Tianjin","Qingdao","Lagos"
 ];
@@ -81,5 +87,3 @@ document.querySelector(".search-bar").addEventListener("keyup",function(event){
 document.querySelector(".box button").addEventListener("click",function(){
     weather.search()
 })
-
-
