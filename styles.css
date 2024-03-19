@@ -41,6 +41,10 @@ body{
     position: absolute;
 }
 
+.result_box::-webkit-scrollbar{
+    display: none;
+}
+
 .result_box ul{
     padding: 0%;
 }

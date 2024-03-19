@@ -1,13 +1,8 @@
-const dotenv = require('dotenv')
-
-dotenv.config();
-
-
 let weather = {
     
     fetchWeather :(city) =>{
         fetch(
-            "https:api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + `${process.env.API_KEY}` + "&units=metric"
+            "https:api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=d56859a347cba7b832066c0ae0fc6ce6&units=metric"
         ).then(res => {
             if(!res.ok){
                 alert("No weather data found")
